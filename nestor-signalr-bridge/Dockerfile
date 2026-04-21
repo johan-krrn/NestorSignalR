@@ -19,10 +19,8 @@ RUN npm ci --only=production --ignore-scripts && \
   npm cache clean --force
 
 # Copy application code
-COPY index.js run.sh ./
+COPY index.js ./
 
-# Make startup script executable
-RUN chmod a+x /app/run.sh
-
-# Run as non-root where possible (HA add-ons run as root by default)
-CMD ["/app/run.sh"]
+# Copy s6-overlay service definition
+COPY rootfs /
+RUN chmod a+x /etc/services.d/nestor-signalr-bridge/run
