@@ -1,0 +1,24 @@
+# ── Node.js ───────────────────────────────────────────────────
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ── Environnement local (ne jamais commiter les tokens/secrets) ─
+.env
+.env.local
+.env.*.local
+
+# ── Home Assistant (données runtime) ─────────────────────────
+/data/
+
+# ── Éditeurs ──────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── OS ────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db

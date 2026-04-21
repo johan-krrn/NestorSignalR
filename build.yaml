@@ -1,0 +1,6 @@
+build_from:
+  amd64: node:20-alpine
+  aarch64: node:20-alpine
+  armv7: node:20-alpine
+  armhf: node:20-alpine
+  i386: node:20-alpine
