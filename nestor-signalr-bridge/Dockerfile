@@ -5,6 +5,9 @@ FROM ${BUILD_FROM}
 LABEL maintainer="Nestor Smart Home"
 LABEL description="Bidirectional bridge: Home Assistant <-> Azure SignalR"
 
+# Install Node.js (HA base images are Alpine without Node)
+RUN apk add --no-cache nodejs npm
+
 # Create app directory
 WORKDIR /app
 
