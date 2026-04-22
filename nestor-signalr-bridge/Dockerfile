@@ -23,6 +23,6 @@ COPY index.js ./
 
 # Create s6-overlay service script inline (avoids Windows CRLF entirely)
 RUN mkdir -p /etc/services.d/nestor-signalr-bridge && \
-    printf '#!/bin/sh\nexec node /app/index.js\n' \
-      > /etc/services.d/nestor-signalr-bridge/run && \
-    chmod +x /etc/services.d/nestor-signalr-bridge/run
+  printf '#!/bin/sh\nexec node /app/index.js\n' \
+  > /etc/services.d/nestor-signalr-bridge/run && \
+  chmod +x /etc/services.d/nestor-signalr-bridge/run

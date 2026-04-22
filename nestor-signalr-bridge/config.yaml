@@ -1,5 +1,5 @@
 name: "Nestor SignalR Bridge"
-version: "1.0.4"
+version: "1.0.5"
 slug: "nestor-signalr-bridge"
 description: "Pont bidirectionnel entre Home Assistant et Azure SignalR Service"
 url: "https://github.com/your-repo/nestor-signalr-bridge"
