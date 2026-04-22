@@ -21,8 +21,8 @@ RUN npm ci --only=production --ignore-scripts && \
 # Copy application code
 COPY index.js ./
 
-# Copy s6-overlay service definition
-COPY rootfs /
-# Strip Windows CRLF line endings and ensure executable
-RUN sed -i 's/\r$//' /etc/services.d/nestor-signalr-bridge/run && \
-  chmod a+x /etc/services.d/nestor-signalr-bridge/run
+# Create s6-overlay service script inline (avoids Windows CRLF entirely)
+RUN mkdir -p /etc/services.d/nestor-signalr-bridge && \
+    printf '#!/bin/sh\nexec node /app/index.js\n' \
+      > /etc/services.d/nestor-signalr-bridge/run && \
+    chmod +x /etc/services.d/nestor-signalr-bridge/run
