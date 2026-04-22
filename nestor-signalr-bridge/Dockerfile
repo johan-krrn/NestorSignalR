@@ -1,12 +1,8 @@
-ARG BUILD_FROM
-FROM ${BUILD_FROM}
+FROM node:20-alpine
 
 # Metadata
 LABEL maintainer="Nestor Smart Home"
 LABEL description="Bidirectional bridge: Home Assistant <-> Azure SignalR"
-
-# Install Node.js (HA base images are Alpine without Node)
-RUN apk add --no-cache nodejs npm
 
 # Create app directory
 WORKDIR /app
@@ -21,8 +17,4 @@ RUN npm ci --only=production --ignore-scripts && \
 # Copy application code
 COPY index.js ./
 
-# Create s6-overlay service script inline (avoids Windows CRLF entirely)
-RUN mkdir -p /etc/services.d/nestor-signalr-bridge && \
-  printf '#!/bin/sh\nexec node /app/index.js\n' \
-  > /etc/services.d/nestor-signalr-bridge/run && \
-  chmod +x /etc/services.d/nestor-signalr-bridge/run
+CMD ["node", "/app/index.js"]
