@@ -23,4 +23,6 @@ COPY index.js ./
 
 # Copy s6-overlay service definition
 COPY rootfs /
-RUN chmod a+x /etc/services.d/nestor-signalr-bridge/run
+# Strip Windows CRLF line endings and ensure executable
+RUN sed -i 's/\r$//' /etc/services.d/nestor-signalr-bridge/run && \
+  chmod a+x /etc/services.d/nestor-signalr-bridge/run
