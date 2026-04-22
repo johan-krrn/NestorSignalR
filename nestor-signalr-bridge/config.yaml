@@ -1,19 +1,22 @@
 name: "Nestor SignalR Bridge"
-version: "1.0.6"
+version: "1.1.0"
 slug: "nestor-signalr-bridge"
 description: "Pont bidirectionnel entre Home Assistant et Azure SignalR Service"
-url: "https://github.com/your-repo/nestor-signalr-bridge"
+url: "https://github.com/johan-krrn/NestorSignalR"
 arch:
   - amd64
   - aarch64
   - armv7
-  - armhf
-  - i386
 startup: application
 boot: auto
 homeassistant_api: true
 hassio_api: true
 host_network: false
+ingress: true
+ingress_port: 8099
+ingress_stream: true
+panel_icon: mdi:lan-connect
+panel_title: Nestor Bridge
 options:
   negotiate_url: "https://nestorsmarthome-poc-ekdmcxekdwegd9ex.a01.azurefd.net/api/Negotiate"
   log_level: "info"
